@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+<!-- HEAD -->
+{% block head %}
+<title>Posts</title>
+{% endblock %}
+
+<!-- BODY -->
+{% block body%}
+<div class="content">
+    <div class="top">
+        <!-- <img src="../static/imgs/logo.png" alt="daily smarty logo" /> -->
+        <h1>Seatmap</h1> 
+    </div>
+
+   <div class="seats-container">
+        {% for seat in seats %}
+        <div class="seat">
+                
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
