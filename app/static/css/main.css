@@ -58,8 +58,43 @@ table {
 	justify-content: center;
 }
 
+h3 {
+	font-size: 1.5rem;
+}
+
+p {
+	font-size: 1rem;
+}
+
 .top {
 	width: 100%;
+}
+
+/* flight info */
+.flight-info {
+	display: flex;
+	flex-direction: column;
+	/* margin: 0 auto; */
+}
+
+.flight-info > div {
+	margin-bottom: 20px;
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+
+}
+
+.passengers {
+	display: flex;
+	flex-direction: column;
+}
+
+.legend {
+	display: flex;
+	flex-direction: column;
 }
 
 h1 {
@@ -68,11 +103,11 @@ h1 {
 }
 
 .seats-container {
-	width: 80%;
+	width: 30%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 }
 
 .seat {

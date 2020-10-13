@@ -12,9 +12,34 @@
     <h1>Seatmap</h1> 
 </div>
 <div class="content">
-    <form>
+    <section class="flight-info">
+        <div class="actions">
+            <button>Cancel Order</button>
+            <button>Purchase Tickets</button>
+        </div>
+        <div class="passengers">
+            <h3>Passengers</h3>
+            <p>Name</p>
+        </div>
+        <div class="pricing">
+            <h3>Total: $0 USD</h3>
+        </div>
+        <div class="legend">
+            <h3>Legend</h3>
+            <div class="item">
+                <div class="seat available"></div>
+                <p>Coach</p>
+            </div>
+            <div class="item">
+                <div class="seat"></div>
+                <p>Unavailable</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- <form>
         <input type="text"  value="{{ value }}"/>
-    </form>
+    </form> -->
     <div class="seats-container">
         <div class="left seats">
             {% for seat in left %}
