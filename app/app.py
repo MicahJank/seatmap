@@ -9,10 +9,20 @@ def index():
     response = requests.get('https://my.api.mockaroo.com/seats?key=0523bb20')
 
     seats = response.json()
-    # i seperate them into two halfs to be able to seperate them in the layout in the html and css
-    top_half = seats[:len(seats)//2]
-    bot_half = seats[len(seats)//2:]
-    return render_template('index.html', top_half=top_half, bot_half=bot_half)
+    left = []
+    middle = [] 
+    right = [] 
+
+    # data needs to be split between left right and middle to display it properly
+    for seat in seats:
+        if seat['row_number'] == 'A' or seat['row_number'] == 'B':
+            left.append(seat)
+        elif seat['row_number'] == 'C' or seat['row_number'] == 'D' or seat['row_number'] == 'E':
+            middle.append(seat)
+        else:
+            right.append(seat)
+
+    return render_template('index.html', left=left, right=right, middle=middle)
     
 
 # @app.route('/<name>')

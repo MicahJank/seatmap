@@ -67,7 +67,7 @@ h1 {
 }
 
 .seats-container {
-	width: 85%;
+	width: 80%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -77,6 +77,25 @@ h1 {
 .seat {
     width: 30px;
     height: 30px;
-	background-color: #0074D9;
+	background-color: #d1d1d1;
 	margin: 5px;
+}
+
+.seat.available {
+	background-color: #0074D9;
+}
+
+.seats {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100px;
+}
+
+.seats.middle {
+	width: 140px;
+	
+}
+
+.seats.right {
+	margin-right: 0;
 }

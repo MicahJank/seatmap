@@ -14,11 +14,47 @@
     </div>
 
    <div class="seats-container">
-        {% for seat in seats %}
-        <div class="seat">
-                
+
+        <div class="left seats">
+            {% for seat in left %}
+                {% if seat.available == True %}
+                    <div class="seat available">
+                        {{ seat.row_number }}
+                    </div>
+                {% else %}
+                    <div class="seat">
+                        {{ seat.row_number }}
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
-        {% endfor %}
+        <div class="middle seats">
+            {% for seat in middle %}
+                {% if seat.available == True %}
+                    <div class="seat available">
+                        {{ seat.row_number }}
+                    </div>
+                {% else %}
+                    <div class="seat">
+                        {{ seat.row_number }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="right seats">
+            {% for seat in right %}
+                {% if seat.available == True %}
+                    <div class="seat available">
+                        {{ seat.row_number }}
+                    </div>
+                {% else %}
+                    <div class="seat">
+                        {{ seat.row_number }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
     </div>
 </div>
 {% endblock %}
