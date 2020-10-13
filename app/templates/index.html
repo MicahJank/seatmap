@@ -7,24 +7,26 @@
 
 <!-- BODY -->
 {% block body%}
+<div class="top">
+    <!-- <img src="../static/imgs/logo.png" alt="daily smarty logo" /> -->
+    <h1>Seatmap</h1> 
+</div>
 <div class="content">
-    <div class="top">
-        <!-- <img src="../static/imgs/logo.png" alt="daily smarty logo" /> -->
-        <h1>Seatmap</h1> 
-    </div>
-
-   <div class="seats-container">
-
+    <form>
+        <input type="text"  value="{{ value }}"/>
+    </form>
+    <div class="seats-container">
         <div class="left seats">
             {% for seat in left %}
                 {% if seat.available == True %}
                     <div class="seat available">
-                        {{ seat.row_number }}
+                        <span>{{ seat.row_number }}</span>
                     </div>
                 {% else %}
                     <div class="seat">
-                        {{ seat.row_number }}
+                        <span>{{ seat.row_number }}</span>
                     </div>
+                        
                 {% endif %}
             {% endfor %}
         </div>
