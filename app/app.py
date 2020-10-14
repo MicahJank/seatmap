@@ -8,7 +8,8 @@ response = requests.get('https://my.api.mockaroo.com/seats?key=0523bb20')
 seats = response.json()
 left = []
 middle = [] 
-right = [] 
+right = []
+
 
 # data needs to be split between left right and middle to display it properly
 for seat in seats:
@@ -21,10 +22,15 @@ for seat in seats:
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+    # total will be updated based on the seat the user selects
+    total = 0 
     if request.method == "GET":
-        print(request.form)
+        print("get")
+    elif request.method == "POST":
+        if request.form['seat']:
+            total = request.form['seat']
     
-    return render_template('index.html', left=left, right=right, middle=middle, value="Hello")
+    return render_template('index.html', left=left, right=right, middle=middle, value=total)
     
 
 # @app.route('/<name>')

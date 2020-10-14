@@ -15,14 +15,14 @@
     <section class="flight-info">
         <div class="actions">
             <button>Cancel Order</button>
-            <button>Purchase Tickets</button>
+            <button>Purchase Ticket</button>
         </div>
         <div class="passengers">
             <h3>Passengers</h3>
             <p>Name</p>
         </div>
         <div class="pricing">
-            <h3>Total: $0 USD</h3>
+            <h3>Total: {{ value }} USD</h3>
         </div>
         <div class="legend">
             <h3>Legend</h3>
@@ -36,53 +36,68 @@
             </div>
         </div>
     </section>
-
-    <form id="seat-data" action="/" method="GET">
-        
-    </form>
-    <button type="submit" form="seat-data" value="Submit">Submit</button>
+    
     <div class="seats-container">
-        <div class="left seats">
-            {% for seat in left %}
-                {% if seat.available == True %}
-                    <div class="seat available">
-                        <span>{{ seat.row_number }}</span>
+        <div class="seats-main">
+            <div class="rows">
+                {% for i in range(18) %}
+                    <div class="row">
+                        <span>{{ i }}</span>
                     </div>
-                {% else %}
-                    <div class="seat">
-                        <span>{{ seat.row_number }}</span>
-                    </div>
+                    {% endfor %}
+            </div>
+            <div class="left seats">
+                <div class="column">A</div>
+                <div class="column">B</div>
+                {% for seat in left %}
+                    {% if seat.available == True %}
+                        <button class="seat available" type="submit" form="seat-data" name="seat" value="{{ seat.seat_price }}">
+                            
+                        </button>
+                    {% else %}
+                        <div class="seat">
+                            <span></span>
+                        </div>
+                            
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="middle seats">
+                <div class="column">C</div>
+                <div class="column">D</div>
+                <div class="column">E</div>
+                {% for seat in middle %}
+                    {% if seat.available == True %}
+                        <button class="seat available" type="submit" form="seat-data" name="seat" value="{{ seat.seat_price }}">
+                            
+                        </button>
+                    {% else %}
+                        <div class="seat">
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="right seats">
+                <div class="column">F</div>
+                <div class="column">G</div>
+                {% for seat in right %}
+                    {% if seat.available == True %}
+                    <button class="seat available" type="submit" form="seat-data" name="seat" value="{{ seat.seat_price }}">
                         
-                {% endif %}
-            {% endfor %}
+                    </button>
+                    {% else %}
+                        <div class="seat">
+                            
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
-        <div class="middle seats">
-            {% for seat in middle %}
-                {% if seat.available == True %}
-                    <div class="seat available">
-                        {{ seat.row_number }}
-                    </div>
-                {% else %}
-                    <div class="seat">
-                        {{ seat.row_number }}
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-        <div class="right seats">
-            {% for seat in right %}
-                {% if seat.available == True %}
-                    <div class="seat available">
-                        {{ seat.row_number }}
-                    </div>
-                {% else %}
-                    <div class="seat">
-                        {{ seat.row_number }}
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
     </div>
 </div>
+<!-- form sends price data from the selected seat to the app -->
+<form id="seat-data" action="/" method="POST">
+     
+</form>
 {% endblock %}
