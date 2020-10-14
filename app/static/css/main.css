@@ -97,6 +97,16 @@ p {
 	flex-direction: column;
 }
 
+.item {
+	display: flex;
+	flex-direction: row;
+}
+
+.item div:hover {
+	filter: none;
+	cursor: auto;
+}
+
 h1 {
 	font-size: 2rem;
 	text-align: center;

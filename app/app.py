@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 import requests
 
 
@@ -21,6 +21,9 @@ for seat in seats:
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+    if request.method == "GET":
+        print(request.form)
+    
     return render_template('index.html', left=left, right=right, middle=middle, value="Hello")
     
 
