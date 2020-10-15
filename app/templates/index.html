@@ -52,7 +52,9 @@
                 {% for seat in left %}
                     {% if seat.available == True %}
                         <button class="seat available" type="submit" form="seat-data" name="seat" value="{{ seat.seat_price }}">
-                            
+                            {% if seat.premium %}
+                                <img src="../static/imgs/realStar.svg" alt="premium star icon" />
+                            {% endif %}
                         </button>
                     {% else %}
                         <div class="seat">

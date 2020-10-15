@@ -10,16 +10,19 @@ left = []
 middle = [] 
 right = []
 
-
 # data needs to be split between left right and middle to display it properly
 for seat in seats:
-    if seat['row_number'] == 'A' or seat['row_number'] == 'B':
+    if seat['column_letter'] == 'A' or seat['column_letter'] == 'B':
         left.append(seat)
-    elif seat['row_number'] == 'C' or seat['row_number'] == 'D' or seat['row_number'] == 'E':
+    elif seat['column_letter'] == 'C' or seat['column_letter'] == 'D' or seat['column_letter'] == 'E':
         middle.append(seat)
     else:
         right.append(seat)
 
+
+print(left)
+# print(middle)
+# print(right)
 @app.route('/', methods=["GET", "POST"])
 def index():
     # total will be updated based on the seat the user selects
